@@ -1,0 +1,14 @@
+INPUT(
+./release\main.o
+./release\mainwindow.o
+./release\maingame.o
+./release\minepictures.o
+./release\minetimer.o
+./release\mineblock.o
+./release\minedialogs.o
+./release\moc_mainwindow.o
+./release\moc_maingame.o
+./release\moc_minetimer.o
+./release\moc_mineblock.o
+./release\moc_minedialogs.o
+);
