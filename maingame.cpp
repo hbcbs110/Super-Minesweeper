@@ -850,6 +850,24 @@ int MineGame::getlevel()
     return currentlevel;
 }
 
+void MineGame::setlang(bool lg)
+{
+    cd.setlang(lg);
+    kd.setlang(lg);
+    clrd.setlang(lg);
+    krd.setlang(lg);
+    brd.setlang(lg);
+    chrd.setlang(lg);
+    chdrd.setlang(lg);
+    ktrd.setlang(lg);
+    djrd.setlang(lg);
+    sprd.setlang(lg);
+    q1rd.setlang(lg);
+    q2rd.setlang(lg);
+    huird.setlang(lg);
+    rnkn.setlang(lg);
+}
+
 void MineGame::readstatus()
 {
     int ktmp[5][5],i,j;

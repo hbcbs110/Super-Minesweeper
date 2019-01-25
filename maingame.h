@@ -94,6 +94,7 @@ public slots:
     int getcol();
     int getmode();
     int getlevel();
+    void setlang(bool lg);
 signals:
     win();
     lose();

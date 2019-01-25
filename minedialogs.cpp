@@ -74,6 +74,23 @@ void CustomDialog::accept()
     QDialog::accept();
 }
 
+void CustomDialog::setlang(bool lg)
+{
+    if(lg)
+    {
+        setWindowTitle("Customize");
+        w->setText("Width: ");
+        h->setText("Height: ");
+        b->setText("Mines: ");
+    }
+    else{
+        setWindowTitle("自定义");
+        w->setText("宽度：");
+        h->setText("高度：");
+        b->setText("雷数：");
+    }
+}
+
 KernalDialog::KernalDialog(QWidget *parent):
     QDialog(parent)
 {
@@ -135,8 +152,19 @@ void KernalDialog::accept()
     QDialog::accept();
 }
 
+void KernalDialog::setlang(bool lg)
+{
+    if(lg)
+    {
+        setWindowTitle("Customize");
+    }
+    else{
+        setWindowTitle("自定义");
+    }
+}
+
 RankDialog::RankDialog(const char* _fpp,QWidget *parent):
-    QDialog(parent),fp(NULL)
+    QDialog(parent),fp(NULL),eng(false)
 {
     setWindowTitle("扫雷英雄榜");
     gl=new QGridLayout(this);
@@ -201,7 +229,8 @@ void RankDialog::settime(int tmd,int _lv)
 {
     itime[_lv]=tmd;
     QString str;
-    str.sprintf("%d秒",tmd);
+    if(eng) str.sprintf("%ds",tmd);
+    else str.sprintf("%d秒",tmd);
     if(_lv==0) tm1->setText(str);
     else if(_lv==1) tm2->setText(str);
     else if(_lv==2) tm3->setText(str);
@@ -270,13 +299,24 @@ void RankDialog::writeitem(QLabel *qlp)
 
 void RankDialog::clearrank()
 {
-    nm1->setText("匿名");
-    nm2->setText("匿名");
-    nm3->setText("匿名");
+    QString str1,str2;
+    if(eng)
+    {
+        str1="Anonymous";
+        str2="999s";
+    }
+    else{
+        str1="匿名";
+        str2="999秒";
+    }
 
-    tm1->setText("999秒");
-    tm2->setText("999秒");
-    tm3->setText("999秒");
+    nm1->setText(str1);
+    nm2->setText(str1);
+    nm3->setText(str1);
+
+    tm1->setText(str2);
+    tm2->setText(str2);
+    tm3->setText(str2);
 
     itime[0]=999;
     itime[1]=999;
@@ -287,6 +327,31 @@ int RankDialog::getrank(int _lv)
 {
     return itime[_lv];
 }
+
+void RankDialog::setlang(bool lg)
+{
+    eng=lg;
+    if(lg)
+    {
+        setWindowTitle("Fastest Mine Sweepers");
+        clr->setText("Reset");
+        ook->setText("OK");
+
+        lv1->setText("Beginner");
+        lv2->setText("Intermediate");
+        lv3->setText("Expert");
+    }
+    else{
+        setWindowTitle("扫雷英雄榜");
+        clr->setText("清空");
+        ook->setText("确定");
+
+        lv1->setText("初级");
+        lv2->setText("中级");
+        lv3->setText("高级");
+    }
+}
+
 /*
 ClassicRank::ClassicRank(QWidget *parent):
     RankDialog(parent)
@@ -356,6 +421,20 @@ void RankName::accept()
     QDialog::accept();
 }
 
+void RankName::setlang(bool lg)
+{
+    eng=lg;
+    if(eng)
+    {
+        setWindowTitle("New High Score！");
+        gw.setText("Congratulations! Please type in your name: ");
+    }
+    else{
+        setWindowTitle("新纪录！");
+        gw.setText("敢问尊姓大名：");
+    }
+}
+
 AGLabel::AGLabel(QWidget *parent):
     QLabel(parent)
 {
@@ -387,7 +466,7 @@ AboutM::AboutM(QWidget *parent):
     hhh.setGeometry(150,10,400,150);
     qp.setGeometry(210,180,80,40);
     QString str;
-    str="Super Mine Sweeper v1.01 Beta  2018\n\n";
+    str="Super Mine Sweeper v1.02 Beta  2019\n\n";
     str+="参考自一个已经挂了的MMO扫雷网站MienField。\n\n";
     str+="由扫雷爱好者hbcbs110兴趣使然制作。\n\n";
     str+="感谢试玩！Have fun~";

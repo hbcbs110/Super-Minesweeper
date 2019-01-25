@@ -6,7 +6,7 @@
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
 
-#include "../minedialogs.h"
+#include "../../superminesweeper-git/minedialogs.h"
 #include <QtCore/qbytearray.h>
 #include <QtCore/qmetatype.h>
 #if !defined(Q_MOC_OUTPUT_REVISION)
@@ -19,8 +19,8 @@
 
 QT_BEGIN_MOC_NAMESPACE
 struct qt_meta_stringdata_CustomDialog_t {
-    QByteArrayData data[12];
-    char stringdata0[66];
+    QByteArrayData data[14];
+    char stringdata0[77];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -40,11 +40,14 @@ QT_MOC_LITERAL(7, 42, 2), // "_w"
 QT_MOC_LITERAL(8, 45, 2), // "_h"
 QT_MOC_LITERAL(9, 48, 2), // "_b"
 QT_MOC_LITERAL(10, 51, 7), // "setself"
-QT_MOC_LITERAL(11, 59, 6) // "accept"
+QT_MOC_LITERAL(11, 59, 6), // "accept"
+QT_MOC_LITERAL(12, 66, 7), // "setlang"
+QT_MOC_LITERAL(13, 74, 2) // "lg"
 
     },
     "CustomDialog\0cuschanged\0\0ww\0hh\0bb\0"
-    "setcval\0_w\0_h\0_b\0setself\0accept"
+    "setcval\0_w\0_h\0_b\0setself\0accept\0setlang\0"
+    "lg"
 };
 #undef QT_MOC_LITERAL
 
@@ -54,7 +57,7 @@ static const uint qt_meta_data_CustomDialog[] = {
        7,       // revision
        0,       // classname
        0,    0, // classinfo
-       4,   14, // methods
+       5,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -62,12 +65,13 @@ static const uint qt_meta_data_CustomDialog[] = {
        1,       // signalCount
 
  // signals: name, argc, parameters, tag, flags
-       1,    3,   34,    2, 0x06 /* Public */,
+       1,    3,   39,    2, 0x06 /* Public */,
 
  // slots: name, argc, parameters, tag, flags
-       6,    3,   41,    2, 0x0a /* Public */,
-      10,    0,   48,    2, 0x0a /* Public */,
-      11,    0,   49,    2, 0x0a /* Public */,
+       6,    3,   46,    2, 0x0a /* Public */,
+      10,    0,   53,    2, 0x0a /* Public */,
+      11,    0,   54,    2, 0x0a /* Public */,
+      12,    1,   55,    2, 0x0a /* Public */,
 
  // signals: parameters
     QMetaType::Int, QMetaType::Int, QMetaType::Int, QMetaType::Int,    3,    4,    5,
@@ -76,6 +80,7 @@ static const uint qt_meta_data_CustomDialog[] = {
     QMetaType::Void, QMetaType::Int, QMetaType::Int, QMetaType::Int,    7,    8,    9,
     QMetaType::Void,
     QMetaType::Void,
+    QMetaType::Void, QMetaType::Bool,   13,
 
        0        // eod
 };
@@ -91,6 +96,7 @@ void CustomDialog::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id
         case 1: _t->setcval((*reinterpret_cast< int(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2])),(*reinterpret_cast< int(*)>(_a[3]))); break;
         case 2: _t->setself(); break;
         case 3: _t->accept(); break;
+        case 4: _t->setlang((*reinterpret_cast< bool(*)>(_a[1]))); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
@@ -131,13 +137,13 @@ int CustomDialog::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 4)
+        if (_id < 5)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 4;
+        _id -= 5;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 4)
+        if (_id < 5)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 4;
+        _id -= 5;
     }
     return _id;
 }
@@ -151,8 +157,8 @@ int CustomDialog::cuschanged(int _t1, int _t2, int _t3)
     return _t0;
 }
 struct qt_meta_stringdata_KernalDialog_t {
-    QByteArrayData data[9];
-    char stringdata0[57];
+    QByteArrayData data[11];
+    char stringdata0[68];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -169,11 +175,13 @@ QT_MOC_LITERAL(4, 26, 2), // "_y"
 QT_MOC_LITERAL(5, 29, 4), // "_val"
 QT_MOC_LITERAL(6, 34, 7), // "setkval"
 QT_MOC_LITERAL(7, 42, 7), // "setself"
-QT_MOC_LITERAL(8, 50, 6) // "accept"
+QT_MOC_LITERAL(8, 50, 6), // "accept"
+QT_MOC_LITERAL(9, 57, 7), // "setlang"
+QT_MOC_LITERAL(10, 65, 2) // "lg"
 
     },
     "KernalDialog\0kchanged\0\0_x\0_y\0_val\0"
-    "setkval\0setself\0accept"
+    "setkval\0setself\0accept\0setlang\0lg"
 };
 #undef QT_MOC_LITERAL
 
@@ -183,7 +191,7 @@ static const uint qt_meta_data_KernalDialog[] = {
        7,       // revision
        0,       // classname
        0,    0, // classinfo
-       4,   14, // methods
+       5,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -191,12 +199,13 @@ static const uint qt_meta_data_KernalDialog[] = {
        1,       // signalCount
 
  // signals: name, argc, parameters, tag, flags
-       1,    3,   34,    2, 0x06 /* Public */,
+       1,    3,   39,    2, 0x06 /* Public */,
 
  // slots: name, argc, parameters, tag, flags
-       6,    3,   41,    2, 0x0a /* Public */,
-       7,    0,   48,    2, 0x0a /* Public */,
-       8,    0,   49,    2, 0x0a /* Public */,
+       6,    3,   46,    2, 0x0a /* Public */,
+       7,    0,   53,    2, 0x0a /* Public */,
+       8,    0,   54,    2, 0x0a /* Public */,
+       9,    1,   55,    2, 0x0a /* Public */,
 
  // signals: parameters
     QMetaType::Int, QMetaType::Int, QMetaType::Int, QMetaType::Int,    3,    4,    5,
@@ -205,6 +214,7 @@ static const uint qt_meta_data_KernalDialog[] = {
     QMetaType::Void, QMetaType::Int, QMetaType::Int, QMetaType::Int,    3,    4,    5,
     QMetaType::Void,
     QMetaType::Void,
+    QMetaType::Void, QMetaType::Bool,   10,
 
        0        // eod
 };
@@ -220,6 +230,7 @@ void KernalDialog::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id
         case 1: _t->setkval((*reinterpret_cast< int(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2])),(*reinterpret_cast< int(*)>(_a[3]))); break;
         case 2: _t->setself(); break;
         case 3: _t->accept(); break;
+        case 4: _t->setlang((*reinterpret_cast< bool(*)>(_a[1]))); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
@@ -260,13 +271,13 @@ int KernalDialog::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 4)
+        if (_id < 5)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 4;
+        _id -= 5;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 4)
+        if (_id < 5)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 4;
+        _id -= 5;
     }
     return _id;
 }
@@ -280,8 +291,8 @@ int KernalDialog::kchanged(int _t1, int _t2, int _t3)
     return _t0;
 }
 struct qt_meta_stringdata_RankDialog_t {
-    QByteArrayData data[11];
-    char stringdata0[77];
+    QByteArrayData data[13];
+    char stringdata0[88];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -300,12 +311,14 @@ QT_MOC_LITERAL(6, 36, 3), // "tmd"
 QT_MOC_LITERAL(7, 40, 8), // "readrank"
 QT_MOC_LITERAL(8, 49, 9), // "writerank"
 QT_MOC_LITERAL(9, 59, 9), // "clearrank"
-QT_MOC_LITERAL(10, 69, 7) // "getrank"
+QT_MOC_LITERAL(10, 69, 7), // "getrank"
+QT_MOC_LITERAL(11, 77, 7), // "setlang"
+QT_MOC_LITERAL(12, 85, 2) // "lg"
 
     },
     "RankDialog\0setname\0\0str\0_lv\0settime\0"
     "tmd\0readrank\0writerank\0clearrank\0"
-    "getrank"
+    "getrank\0setlang\0lg"
 };
 #undef QT_MOC_LITERAL
 
@@ -315,7 +328,7 @@ static const uint qt_meta_data_RankDialog[] = {
        7,       // revision
        0,       // classname
        0,    0, // classinfo
-       6,   14, // methods
+       7,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -323,12 +336,13 @@ static const uint qt_meta_data_RankDialog[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags
-       1,    2,   44,    2, 0x0a /* Public */,
-       5,    2,   49,    2, 0x0a /* Public */,
-       7,    0,   54,    2, 0x0a /* Public */,
-       8,    0,   55,    2, 0x0a /* Public */,
-       9,    0,   56,    2, 0x0a /* Public */,
-      10,    1,   57,    2, 0x0a /* Public */,
+       1,    2,   49,    2, 0x0a /* Public */,
+       5,    2,   54,    2, 0x0a /* Public */,
+       7,    0,   59,    2, 0x0a /* Public */,
+       8,    0,   60,    2, 0x0a /* Public */,
+       9,    0,   61,    2, 0x0a /* Public */,
+      10,    1,   62,    2, 0x0a /* Public */,
+      11,    1,   65,    2, 0x0a /* Public */,
 
  // slots: parameters
     QMetaType::Void, QMetaType::QString, QMetaType::Int,    3,    4,
@@ -337,6 +351,7 @@ static const uint qt_meta_data_RankDialog[] = {
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Int, QMetaType::Int,    4,
+    QMetaType::Void, QMetaType::Bool,   12,
 
        0        // eod
 };
@@ -354,6 +369,7 @@ void RankDialog::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 4: _t->clearrank(); break;
         case 5: { int _r = _t->getrank((*reinterpret_cast< int(*)>(_a[1])));
             if (_a[0]) *reinterpret_cast< int*>(_a[0]) = _r; }  break;
+        case 6: _t->setlang((*reinterpret_cast< bool(*)>(_a[1]))); break;
         default: ;
         }
     }
@@ -384,19 +400,19 @@ int RankDialog::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 6)
+        if (_id < 7)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 6;
+        _id -= 7;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 6)
+        if (_id < 7)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 6;
+        _id -= 7;
     }
     return _id;
 }
 struct qt_meta_stringdata_RankName_t {
-    QByteArrayData data[5];
-    char stringdata0[29];
+    QByteArrayData data[7];
+    char stringdata0[40];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -409,10 +425,13 @@ QT_MOC_LITERAL(0, 0, 8), // "RankName"
 QT_MOC_LITERAL(1, 9, 7), // "getname"
 QT_MOC_LITERAL(2, 17, 0), // ""
 QT_MOC_LITERAL(3, 18, 3), // "str"
-QT_MOC_LITERAL(4, 22, 6) // "accept"
+QT_MOC_LITERAL(4, 22, 6), // "accept"
+QT_MOC_LITERAL(5, 29, 7), // "setlang"
+QT_MOC_LITERAL(6, 37, 2) // "lg"
 
     },
-    "RankName\0getname\0\0str\0accept"
+    "RankName\0getname\0\0str\0accept\0setlang\0"
+    "lg"
 };
 #undef QT_MOC_LITERAL
 
@@ -422,7 +441,7 @@ static const uint qt_meta_data_RankName[] = {
        7,       // revision
        0,       // classname
        0,    0, // classinfo
-       2,   14, // methods
+       3,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -430,16 +449,18 @@ static const uint qt_meta_data_RankName[] = {
        1,       // signalCount
 
  // signals: name, argc, parameters, tag, flags
-       1,    1,   24,    2, 0x06 /* Public */,
+       1,    1,   29,    2, 0x06 /* Public */,
 
  // slots: name, argc, parameters, tag, flags
-       4,    0,   27,    2, 0x0a /* Public */,
+       4,    0,   32,    2, 0x0a /* Public */,
+       5,    1,   33,    2, 0x0a /* Public */,
 
  // signals: parameters
     QMetaType::Int, QMetaType::QString,    3,
 
  // slots: parameters
     QMetaType::Void,
+    QMetaType::Void, QMetaType::Bool,    6,
 
        0        // eod
 };
@@ -453,6 +474,7 @@ void RankName::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, vo
         case 0: { int _r = _t->getname((*reinterpret_cast< QString(*)>(_a[1])));
             if (_a[0]) *reinterpret_cast< int*>(_a[0]) = _r; }  break;
         case 1: _t->accept(); break;
+        case 2: _t->setlang((*reinterpret_cast< bool(*)>(_a[1]))); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
@@ -493,13 +515,13 @@ int RankName::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 2)
+        if (_id < 3)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 2;
+        _id -= 3;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 2)
+        if (_id < 3)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 2;
+        _id -= 3;
     }
     return _id;
 }

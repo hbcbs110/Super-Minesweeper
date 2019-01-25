@@ -6,7 +6,7 @@
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
 
-#include "../mineblock.h"
+#include "../../superminesweeper-git/mineblock.h"
 #include <QtCore/qbytearray.h>
 #include <QtCore/qmetatype.h>
 #if !defined(Q_MOC_OUTPUT_REVISION)
@@ -149,8 +149,8 @@ int ClickLabel::clickedR()
     return _t0;
 }
 struct qt_meta_stringdata_Block_t {
-    QByteArrayData data[15];
-    char stringdata0[79];
+    QByteArrayData data[17];
+    char stringdata0[105];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -173,12 +173,14 @@ QT_MOC_LITERAL(10, 53, 7), // "refresh"
 QT_MOC_LITERAL(11, 61, 4), // "flag"
 QT_MOC_LITERAL(12, 66, 3), // "dig"
 QT_MOC_LITERAL(13, 70, 4), // "safe"
-QT_MOC_LITERAL(14, 75, 3) // "dis"
+QT_MOC_LITERAL(14, 75, 3), // "dis"
+QT_MOC_LITERAL(15, 79, 11), // "nonetrigger"
+QT_MOC_LITERAL(16, 91, 13) // "denonetrigger"
 
     },
     "Block\0dug\0\0_x\0_y\0detect\0multiflag\0"
     "enflag\0deflag\0doom\0refresh\0flag\0dig\0"
-    "safe\0dis"
+    "safe\0dis\0nonetrigger\0denonetrigger"
 };
 #undef QT_MOC_LITERAL
 
@@ -188,7 +190,7 @@ static const uint qt_meta_data_Block[] = {
        7,       // revision
        0,       // classname
        0,    0, // classinfo
-      15,   14, // methods
+      17,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -196,23 +198,25 @@ static const uint qt_meta_data_Block[] = {
       10,       // signalCount
 
  // signals: name, argc, parameters, tag, flags
-       1,    0,   89,    2, 0x06 /* Public */,
-       1,    2,   90,    2, 0x06 /* Public */,
-       5,    0,   95,    2, 0x06 /* Public */,
-       5,    2,   96,    2, 0x06 /* Public */,
-       6,    0,  101,    2, 0x06 /* Public */,
-       6,    2,  102,    2, 0x06 /* Public */,
-       7,    0,  107,    2, 0x06 /* Public */,
-       8,    0,  108,    2, 0x06 /* Public */,
-       9,    0,  109,    2, 0x06 /* Public */,
-       9,    2,  110,    2, 0x06 /* Public */,
+       1,    0,   99,    2, 0x06 /* Public */,
+       1,    2,  100,    2, 0x06 /* Public */,
+       5,    0,  105,    2, 0x06 /* Public */,
+       5,    2,  106,    2, 0x06 /* Public */,
+       6,    0,  111,    2, 0x06 /* Public */,
+       6,    2,  112,    2, 0x06 /* Public */,
+       7,    0,  117,    2, 0x06 /* Public */,
+       8,    0,  118,    2, 0x06 /* Public */,
+       9,    0,  119,    2, 0x06 /* Public */,
+       9,    2,  120,    2, 0x06 /* Public */,
 
  // slots: name, argc, parameters, tag, flags
-      10,    0,  115,    2, 0x0a /* Public */,
-      11,    0,  116,    2, 0x0a /* Public */,
-      12,    0,  117,    2, 0x0a /* Public */,
-      13,    0,  118,    2, 0x0a /* Public */,
-      14,    0,  119,    2, 0x0a /* Public */,
+      10,    0,  125,    2, 0x0a /* Public */,
+      11,    0,  126,    2, 0x0a /* Public */,
+      12,    0,  127,    2, 0x0a /* Public */,
+      13,    0,  128,    2, 0x0a /* Public */,
+      14,    0,  129,    2, 0x0a /* Public */,
+      15,    0,  130,    2, 0x0a /* Public */,
+      16,    0,  131,    2, 0x0a /* Public */,
 
  // signals: parameters
     QMetaType::Int,
@@ -231,6 +235,8 @@ static const uint qt_meta_data_Block[] = {
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Bool,
+    QMetaType::Void,
+    QMetaType::Void,
     QMetaType::Void,
 
        0        // eod
@@ -268,6 +274,8 @@ void Block::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void 
         case 13: { bool _r = _t->safe();
             if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = _r; }  break;
         case 14: _t->dis(); break;
+        case 15: _t->nonetrigger(); break;
+        case 16: _t->denonetrigger(); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
@@ -371,13 +379,13 @@ int Block::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 15)
+        if (_id < 17)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 15;
+        _id -= 17;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 15)
+        if (_id < 17)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 15;
+        _id -= 17;
     }
     return _id;
 }

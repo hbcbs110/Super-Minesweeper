@@ -9,6 +9,23 @@ MainWindow::MainWindow(QWidget *parent) :
     setWindowTitle(tr("SuperMineSweeper"));
     setStyleSheet("QMainWindow{background-color:rgb(225,225,225)}");
 
+    eng=false;
+    FILE* fp=fopen("language","r");
+    if(fp!=NULL)
+    {
+        char lang[8]={0};
+        fgets(lang,8,fp);
+        if(lang[0]=='C'||lang[0]=='c') eng=false;
+        else if(lang[0]=='E'||lang[0]=='e') eng=true;
+        fclose(fp);
+    }
+    else{
+        fp=fopen("language","w");
+        fprintf(fp,"Chinese");
+        fclose(fp);
+    }
+
+
     openAction = new QAction(QIcon(":/images/doc-open"), tr("&新游戏"), this);
     openAction->setStatusTip(tr("新一局游戏"));
     //connect(openAction, &QAction::triggered, this, &MainWindow::open);
@@ -27,6 +44,23 @@ MainWindow::MainWindow(QWidget *parent) :
     lvmx = new QAction(tr("&Max"),this);
     custom1 = new QAction(tr("&自定义"),this);
     custom1->setStatusTip(tr("自定义难度"));
+    if(eng)
+    {
+        openAction->setText(tr("New Game"));
+        openAction->setStatusTip(tr("Start a new game"));
+        cont->setText(tr("Continue"));
+        cont->setStatusTip(tr("Continue a saved game"));
+        save->setText(tr("Save"));
+        save->setStatusTip(tr("Save current game"));
+        rank->setText(tr("Best times..."));
+        rank->setStatusTip(tr("Checkout our great Minesweeping heroes"));
+        lv1->setText(tr("Beginner"));
+        lv2->setText(tr("Intermediate"));
+        lv3->setText(tr("Expert"));
+        lvmx->setText(tr("Maximum"));
+        custom1->setText(tr("Custom"));
+        custom1->setStatusTip(tr("Customize difficulty"));
+    }
     lv1->setCheckable(true);
     lv2->setCheckable(true);
     lv3->setCheckable(true);
@@ -38,9 +72,9 @@ MainWindow::MainWindow(QWidget *parent) :
     lv3->setChecked(mg.getlevel()==2);
     custom1->setChecked(mg.getlevel()==3);
     lvmx->setChecked(mg.getlevel()==5);
-    classical = new QAction(tr("&经典模式"));
+    classical = new QAction(tr("&经典模式"),this);
     classical->setStatusTip(tr("经典扫雷的游戏模式"));
-    knight = new QAction(tr("&骑士模式"));
+    knight = new QAction(tr("&骑士模式"),this);
     knight->setStatusTip(tr("像骑士一样向跳字对角探测八个地方"));
     ftf = new QAction(tr("&大块模式"),this);
     ftf->setStatusTip(tr("将视野拓宽到五五见方的大格内"));
@@ -58,6 +92,29 @@ MainWindow::MainWindow(QWidget *parent) :
     qq1 = new QAction(tr("Q1模式"),this);
     qq2 = new QAction(tr("Q2模式"),this);
     hui = new QAction(tr("回"),this);
+    if(eng)
+    {
+        classical->setText(tr("Classical Mode"));
+        classical->setStatusTip(tr("Classical 3x3 Mode"));
+        knight->setText(tr("Knight Mode"));
+        knight->setStatusTip(tr("Detect cells like a Knight"));
+        ftf->setText(tr("Quadrel Mode"));
+        ftf->setStatusTip(tr("Broad 5x5 View"));
+        chuz->setText(tr("Cross Mode"));
+        chuz->setStatusTip(tr("Try easier perpendicular cross"));
+        custom2->setText(tr("Costum"));
+        custom2->setStatusTip(tr("Costumize Mode"));
+        chuzd->setText(tr("Cross Mode EX"));
+        chuzd->setStatusTip(tr("Expanded cross"));
+        kite->setText(tr("Diamond"));
+        kite->setStatusTip(tr("Dig in Rhombus"));
+        duijiao->setText(tr("Diagonal"));
+        spider->setText(tr("Spider"));
+        spider->setStatusTip(tr("Let's be a mine spider"));
+        qq1->setText(tr("Q1 Mode"));
+        qq2->setText(tr("Q2 Mode"));
+        hui->setText(tr("回"));
+    }
     classical->setCheckable(true);
     knight->setCheckable(true);
     ftf->setCheckable(true);
@@ -92,6 +149,13 @@ MainWindow::MainWindow(QWidget *parent) :
     waspf->setCheckable(true);
     waspf->setChecked(false);
     waspf->setStatusTip(tr("Get to the Wasp Field!"));
+    if(eng)
+    {
+        exitt->setText(tr("Exit"));
+        exitt->setStatusTip(tr("Exit game."));
+        help->setText(tr("Help"));
+        about->setText(tr("About..."));
+    }
 
     agame = new QActionGroup(this);
     alevel = new QActionGroup(this);
@@ -128,6 +192,10 @@ MainWindow::MainWindow(QWidget *parent) :
     amode->addAction(custom2);
     aexit->addAction(exitt);
     awasp->addAction(waspf);
+    lang = new QAction(tr("中文/English"),this);
+    if(eng) lang->setStatusTip(tr("English->中文"));
+    else lang->setStatusTip(tr("中文->English"));
+    awasp->addAction(lang);
 
     QMenu *mgame = menuBar()->addMenu(tr("&游戏"));
     QMenu *mhelp = menuBar()->addMenu(tr("&帮助"));
@@ -148,12 +216,21 @@ MainWindow::MainWindow(QWidget *parent) :
     mhelp->addAction(help);
     mhelp->addAction(about);
 
+    if(eng)
+    {
+        mgame->setTitle(tr("Game"));
+        mhelp->setTitle(tr("Help"));
+        mdiff->setTitle(tr("Difficulty"));
+        mmode->setTitle(tr("Mode"));
+    }
+
     //statusBar()->setStyleSheet("QStatusBar{background:white;}");
     statusBar()->show();
 
     mg.move(0,0);
     mg.setGeometry(0,0,1500,1500);
     mg.show();
+    mg.setlang(eng);
 
     int winw=30+mg.getcol()*20,winh=95+mg.getrow()*20;
     mapsize(winw,winh);
@@ -182,6 +259,7 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(about,SIGNAL(triggered(bool)),&mg,SLOT(callabout()));
 
     connect(waspf,SIGNAL(triggered(bool)),this,SLOT(switchwasp()));
+    connect(lang,SIGNAL(triggered(bool)),this,SLOT(changelang()));
 
     connect(&mg,SIGNAL(refreshed()),this,SLOT(mainicon()));
     connect(&mg,SIGNAL(win()),this,SLOT(flagicon()));
@@ -228,10 +306,24 @@ void MainWindow::switchwasp()
     mg.switchwasp();
 }
 
+//show remaining lives
 void MainWindow::mns(int l)
 {
     QString str;
     for(int i=0;i<l;i++) str+="♥";
     str+="♡";
     statusBar()->showMessage(str,4000);
+}
+
+void MainWindow::changelang()
+{
+    FILE* fp=fopen("language","w");
+    if(fp==NULL) return;
+    if(eng) fprintf(fp,"Chinese");
+    else fprintf(fp,"English");
+    fclose(fp);fp=NULL;
+    QMessageBox qmb(this);
+    qmb.setWindowTitle(tr("Success"));
+    qmb.setText(tr("The setting will be active on next boot.\n下次启动生效。"));
+    qmb.exec();
 }

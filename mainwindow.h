@@ -27,12 +27,15 @@ public slots:
     void mainicon();
     void switchwasp();
     void mns(int l);
+    void changelang();
 
 private:
     //Ui::MainWindow *ui;
     /*菜单项：
      * 游戏：新游戏，继续、保存，初级、中级、高级，经典模式、骑士模式、大块模式、垂直模式，自定义，退出
      * 帮助：帮助，关于*/
+    //Game: New Game, Continue Save, Beginner Intermediate Expert, Classic Knight...Custom, Quit
+    //Help: Help, About...
     QAction *openAction;
     QAction *cont,*save;
     QAction *rank;
@@ -51,12 +54,14 @@ private:
     QAction *custom1;
     QAction *custom2;
     QAction *waspf;
+    QAction *lang;
     QAction *exitt;
     QAction *help;
     QAction *about;
     QAction *sep;
     QActionGroup *agame,*alevel,*amode,*aexit,*awasp;
     MineGame mg;
+    bool eng;
 
     //RankDialog rd;
 };

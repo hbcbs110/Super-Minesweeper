@@ -12,6 +12,7 @@ public slots:
     void setcval(int _w,int _h,int _b);
     void setself();
     void accept();
+    void setlang(bool lg);
 signals:
     cuschanged(int ww,int hh,int bb);
 protected:
@@ -35,6 +36,7 @@ public slots:
     void setkval(int _x,int _y,int _val);
     void setself();
     void accept();
+    void setlang(bool lg);
 signals:
     kchanged(int _x,int _y,int _val);
 protected:
@@ -58,6 +60,7 @@ public slots:
     virtual void writerank();
     void clearrank();
     int getrank(int _lv);
+    void setlang(bool lg);
 protected:
     void readitem(QLabel *qlp,int mod=0);
     void writeitem(QLabel *qlp);
@@ -70,6 +73,7 @@ protected:
     int itime[3];
     FILE *fp;
     char fpp[32];
+    bool eng;
 };
 
 class RankName:public QDialog
@@ -79,6 +83,7 @@ public:
     RankName(QWidget *parent=0);
 public slots:
     void accept();
+    void setlang(bool lg);
 signals:
     getname(QString str);
 protected:
@@ -86,6 +91,7 @@ protected:
     QLabel gw;
     QDialogButtonBox *buttonBox;
     QGridLayout *gl;
+    bool eng;
 };
 
 class AGLabel:public QLabel

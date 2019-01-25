@@ -6,7 +6,7 @@
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
 
-#include "../maingame.h"
+#include "../../superminesweeper-git/maingame.h"
 #include <QtCore/qbytearray.h>
 #include <QtCore/qmetatype.h>
 #if !defined(Q_MOC_OUTPUT_REVISION)
@@ -203,8 +203,8 @@ int Kernal::kgoit(int _t1, int _t2, int _t3)
     return _t0;
 }
 struct qt_meta_stringdata_MineGame_t {
-    QByteArrayData data[54];
-    char stringdata0[408];
+    QByteArrayData data[56];
+    char stringdata0[419];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -266,7 +266,9 @@ QT_MOC_LITERAL(49, 367, 9), // "modequest"
 QT_MOC_LITERAL(50, 377, 6), // "getrow"
 QT_MOC_LITERAL(51, 384, 6), // "getcol"
 QT_MOC_LITERAL(52, 391, 7), // "getmode"
-QT_MOC_LITERAL(53, 399, 8) // "getlevel"
+QT_MOC_LITERAL(53, 399, 8), // "getlevel"
+QT_MOC_LITERAL(54, 408, 7), // "setlang"
+QT_MOC_LITERAL(55, 416, 2) // "lg"
 
     },
     "MineGame\0win\0\0lose\0mapsize\0refreshed\0"
@@ -280,7 +282,7 @@ QT_MOC_LITERAL(53, 399, 8) // "getlevel"
     "brick\0chuz\0chuzd\0kite\0duijiao\0spider\0"
     "qqq1\0qqq2\0hui\0leftpress\0rightpress\0"
     "switchwasp\0modequest\0getrow\0getcol\0"
-    "getmode\0getlevel"
+    "getmode\0getlevel\0setlang\0lg"
 };
 #undef QT_MOC_LITERAL
 
@@ -290,7 +292,7 @@ static const uint qt_meta_data_MineGame[] = {
        7,       // revision
        0,       // classname
        0,    0, // classinfo
-      49,   14, // methods
+      50,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -298,57 +300,58 @@ static const uint qt_meta_data_MineGame[] = {
        7,       // signalCount
 
  // signals: name, argc, parameters, tag, flags
-       1,    0,  259,    2, 0x06 /* Public */,
-       3,    0,  260,    2, 0x06 /* Public */,
-       1,    1,  261,    2, 0x06 /* Public */,
-       3,    1,  264,    2, 0x06 /* Public */,
-       4,    2,  267,    2, 0x06 /* Public */,
-       5,    0,  272,    2, 0x06 /* Public */,
-       6,    1,  273,    2, 0x06 /* Public */,
+       1,    0,  264,    2, 0x06 /* Public */,
+       3,    0,  265,    2, 0x06 /* Public */,
+       1,    1,  266,    2, 0x06 /* Public */,
+       3,    1,  269,    2, 0x06 /* Public */,
+       4,    2,  272,    2, 0x06 /* Public */,
+       5,    0,  277,    2, 0x06 /* Public */,
+       6,    1,  278,    2, 0x06 /* Public */,
 
  // slots: name, argc, parameters, tag, flags
-       7,    0,  276,    2, 0x0a /* Public */,
-       8,    3,  277,    2, 0x0a /* Public */,
-       8,    2,  284,    2, 0x2a /* Public | MethodCloned */,
-       8,    1,  289,    2, 0x2a /* Public | MethodCloned */,
-       8,    0,  292,    2, 0x2a /* Public | MethodCloned */,
-      12,    0,  293,    2, 0x0a /* Public */,
-      13,    2,  294,    2, 0x0a /* Public */,
-      14,    0,  299,    2, 0x0a /* Public */,
-      15,    0,  300,    2, 0x0a /* Public */,
-      16,    0,  301,    2, 0x0a /* Public */,
-      17,    0,  302,    2, 0x0a /* Public */,
-      18,    3,  303,    2, 0x0a /* Public */,
-      22,    2,  310,    2, 0x0a /* Public */,
-      23,    2,  315,    2, 0x0a /* Public */,
-      24,    2,  320,    2, 0x0a /* Public */,
-      25,    2,  325,    2, 0x0a /* Public */,
-      26,    0,  330,    2, 0x0a /* Public */,
-      27,    1,  331,    2, 0x0a /* Public */,
-      29,    1,  334,    2, 0x0a /* Public */,
-      31,    0,  337,    2, 0x0a /* Public */,
-      32,    0,  338,    2, 0x0a /* Public */,
-      33,    0,  339,    2, 0x0a /* Public */,
-      34,    0,  340,    2, 0x0a /* Public */,
-      35,    0,  341,    2, 0x0a /* Public */,
-      36,    0,  342,    2, 0x0a /* Public */,
-      37,    0,  343,    2, 0x0a /* Public */,
-      38,    0,  344,    2, 0x0a /* Public */,
-      39,    0,  345,    2, 0x0a /* Public */,
-      40,    0,  346,    2, 0x0a /* Public */,
-      41,    0,  347,    2, 0x0a /* Public */,
-      42,    0,  348,    2, 0x0a /* Public */,
-      43,    0,  349,    2, 0x0a /* Public */,
-      44,    0,  350,    2, 0x0a /* Public */,
-      45,    0,  351,    2, 0x0a /* Public */,
-      46,    0,  352,    2, 0x0a /* Public */,
-      47,    0,  353,    2, 0x0a /* Public */,
-      48,    0,  354,    2, 0x0a /* Public */,
-      49,    0,  355,    2, 0x0a /* Public */,
-      50,    0,  356,    2, 0x0a /* Public */,
-      51,    0,  357,    2, 0x0a /* Public */,
-      52,    0,  358,    2, 0x0a /* Public */,
-      53,    0,  359,    2, 0x0a /* Public */,
+       7,    0,  281,    2, 0x0a /* Public */,
+       8,    3,  282,    2, 0x0a /* Public */,
+       8,    2,  289,    2, 0x2a /* Public | MethodCloned */,
+       8,    1,  294,    2, 0x2a /* Public | MethodCloned */,
+       8,    0,  297,    2, 0x2a /* Public | MethodCloned */,
+      12,    0,  298,    2, 0x0a /* Public */,
+      13,    2,  299,    2, 0x0a /* Public */,
+      14,    0,  304,    2, 0x0a /* Public */,
+      15,    0,  305,    2, 0x0a /* Public */,
+      16,    0,  306,    2, 0x0a /* Public */,
+      17,    0,  307,    2, 0x0a /* Public */,
+      18,    3,  308,    2, 0x0a /* Public */,
+      22,    2,  315,    2, 0x0a /* Public */,
+      23,    2,  320,    2, 0x0a /* Public */,
+      24,    2,  325,    2, 0x0a /* Public */,
+      25,    2,  330,    2, 0x0a /* Public */,
+      26,    0,  335,    2, 0x0a /* Public */,
+      27,    1,  336,    2, 0x0a /* Public */,
+      29,    1,  339,    2, 0x0a /* Public */,
+      31,    0,  342,    2, 0x0a /* Public */,
+      32,    0,  343,    2, 0x0a /* Public */,
+      33,    0,  344,    2, 0x0a /* Public */,
+      34,    0,  345,    2, 0x0a /* Public */,
+      35,    0,  346,    2, 0x0a /* Public */,
+      36,    0,  347,    2, 0x0a /* Public */,
+      37,    0,  348,    2, 0x0a /* Public */,
+      38,    0,  349,    2, 0x0a /* Public */,
+      39,    0,  350,    2, 0x0a /* Public */,
+      40,    0,  351,    2, 0x0a /* Public */,
+      41,    0,  352,    2, 0x0a /* Public */,
+      42,    0,  353,    2, 0x0a /* Public */,
+      43,    0,  354,    2, 0x0a /* Public */,
+      44,    0,  355,    2, 0x0a /* Public */,
+      45,    0,  356,    2, 0x0a /* Public */,
+      46,    0,  357,    2, 0x0a /* Public */,
+      47,    0,  358,    2, 0x0a /* Public */,
+      48,    0,  359,    2, 0x0a /* Public */,
+      49,    0,  360,    2, 0x0a /* Public */,
+      50,    0,  361,    2, 0x0a /* Public */,
+      51,    0,  362,    2, 0x0a /* Public */,
+      52,    0,  363,    2, 0x0a /* Public */,
+      53,    0,  364,    2, 0x0a /* Public */,
+      54,    1,  365,    2, 0x0a /* Public */,
 
  // signals: parameters
     QMetaType::Int,
@@ -402,6 +405,7 @@ static const uint qt_meta_data_MineGame[] = {
     QMetaType::Int,
     QMetaType::Int,
     QMetaType::Int,
+    QMetaType::Void, QMetaType::Bool,   55,
 
        0        // eod
 };
@@ -473,6 +477,7 @@ void MineGame::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, vo
             if (_a[0]) *reinterpret_cast< int*>(_a[0]) = _r; }  break;
         case 48: { int _r = _t->getlevel();
             if (_a[0]) *reinterpret_cast< int*>(_a[0]) = _r; }  break;
+        case 49: _t->setlang((*reinterpret_cast< bool(*)>(_a[1]))); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
@@ -555,13 +560,13 @@ int MineGame::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 49)
+        if (_id < 50)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 49;
+        _id -= 50;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 49)
+        if (_id < 50)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 49;
+        _id -= 50;
     }
     return _id;
 }
